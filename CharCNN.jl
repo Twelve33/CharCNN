@@ -1,6 +1,6 @@
 using Mocha
 srand(12345678)
-
+# TODO: fix this layer architecture: should be three convolution modules which halve sentence length and double filter size.
 data_layer  = AsyncHDF5DataLayer(name="train-data", source="data/train.txt", batch_size=64, shuffle=true)
 conv_layer  = ConvolutionLayer(name="conv1", n_filter=20, kernel=(5,5), bottoms=[:data], tops=[:conv])
 pool_layer  = PoolingLayer(name="pool1", kernel=(2,2), stride=(2,2), bottoms=[:conv], tops=[:pool])
